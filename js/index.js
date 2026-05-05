@@ -77,20 +77,6 @@
     document.addEventListener('mouseout', function(e) {
         if (e.target.closest('a,button,.tab-btn,.menu-card,.spec-card,.contatti-card')) cur.classList.remove('big');
     });
-
-    /* ── PARTICLES ── */
-    var SHAPES = ['🌸','✨','🍫','🌺','⭐','🍰','🌹','💫','🎀','🍊'];
-    var pBox = document.getElementById('particles');
-    function spawnP() {
-        var p = document.createElement('span');
-        var s = 13 + Math.random() * 13;
-        p.textContent = SHAPES[Math.floor(Math.random() * SHAPES.length)];
-        p.style.cssText = 'position:absolute;left:' + (Math.random()*100) + 'vw;bottom:-30px;font-size:' + s + 'px;animation:floatUp ' + (7+Math.random()*8) + 's linear forwards;pointer-events:none;';
-        pBox.appendChild(p);
-        setTimeout(function() { p.remove(); }, 17000);
-    }
-    setInterval(spawnP, 1300);
-
     /* ── HERO SUBTITLE ── */
     const heroSub = document.getElementById('hero-sub');
     if(heroSub) heroSub.textContent = HOME_DATA.hero.subtitle;

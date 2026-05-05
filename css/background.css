@@ -105,3 +105,68 @@ footer {
     -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--shadow);
 }
+
+/* ─── background.css (VERSIONE UNIFICATA) ─── */
+
+:root {
+    --cream-light: #fdfbf7;
+    --gold-pale: rgba(228, 185, 106, 0.1);
+    --rose-pale: rgba(232, 196, 187, 0.15);
+}
+
+/* 1. Sfondo unico per tutta la pagina */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cream-light);
+    /* Unico gradiente morbido che copre tutto il background */
+    background-image: 
+        radial-gradient(at 0% 0%, var(--gold-pale) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, var(--rose-pale) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255,255,255,0.8) 0px, transparent 80%);
+    background-attachment: fixed; /* Lo sfondo resta fermo, il contenuto scorre sopra */
+    background-size: cover;
+}
+
+/* 2. Rendi tutte le sezioni trasparenti per non "rompere" lo sfondo */
+section, 
+main, 
+.specialita-hero, 
+.gallery-section, 
+#chisiamo {
+    background: transparent !important; /* Elimina i colori diversi tra sezioni */
+    border: none !important;
+}
+
+/* 3. Le orbite rimangono ma sono più discrete e non creano distacchi */
+.hero-orb {
+    position: fixed; /* Fixed così non si creano buchi bianchi scorrendo */
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: -1; /* Sempre dietro a tutto */
+    opacity: 0.6;
+}
+
+.hero-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 144, 58, 0.12), transparent);
+    top: -10%;
+    right: -10%;
+    animation: orbFloat 15s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212, 137, 122, 0.1), transparent);
+    bottom: 10%;
+    left: -5%;
+    animation: orbFloat 20s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(30px, 50px); }
+}

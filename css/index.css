@@ -389,3 +389,55 @@
       #specialita, #menu, #chisiamo, #contatti { padding: 5rem 1.2rem; }
       .tab-btn { font-size: .72rem; padding: .55rem 1rem; }
     }
+
+/* ─── CHI SIAMO: VERSIONE MOBILE PULITA ─── */
+
+@media (max-width: 850px) {
+    /* 1. Nascondiamo la torta e le card fluttuanti per pulizia visiva */
+    .about-visual {
+        display: none !important;
+    }
+
+    /* 2. Ottimizziamo il contenitore del testo */
+    .about-inner {
+        display: block; /* Layout semplice a colonna */
+        padding: 3rem 1.5rem;
+        text-align: center;
+    }
+
+    /* 3. Centratura e spaziatura dei testi */
+    .section-label {
+        display: block;
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    .divider {
+        margin: 1.5rem auto;
+        justify-content: center;
+    }
+
+    .about-story {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--text-dark);
+        text-align: center; /* Testo centrato per estetica mobile */
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    /* 4. Valori (se presenti) uno sotto l'altro */
+    .about-values {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+}

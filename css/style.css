@@ -353,3 +353,64 @@
         padding: 0.8rem 1.5rem; /* Padding più stretto su mobile */
     }
 }
+
+/* ─── ICONA HAMBURGER ELEGANTE ─── */
+
+.hamburger {
+    display: none; /* Si attiverà nella media query sotto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Allinea le linee a destra per un look più dinamico */
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2000;
+    transition: all 0.3s ease;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px; /* Linea sottile = più eleganza */
+    background-color: var(--brown); /* Il tuo marrone d'ordinanza */
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6); /* Movimento elastico */
+}
+
+/* Larghezze differenziate per un design asimmetrico e moderno */
+.hamburger span:nth-child(1) { width: 28px; }
+.hamburger span:nth-child(2) { width: 20px; }
+.hamburger span:nth-child(3) { width: 24px; }
+
+/* ─── EFFETTO AL PASSAGGIO (HOVER) ─── */
+.hamburger:hover span {
+    width: 30px; /* Tutte si allineano al passaggio del mouse */
+    background-color: var(--gold); /* Cambio colore verso l'oro */
+}
+
+/* ─── ANIMAZIONE QUANDO IL MENU È APERTO ─── */
+/* Queste classi vengono aggiunte dal tuo JavaScript (es. hamburger.classList.toggle('is-active')) */
+.hamburger.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    width: 30px;
+}
+
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0; /* La linea centrale sparisce */
+    transform: translateX(-20px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    width: 30px;
+}
+
+/* ─── MEDIA QUERY PER VISUALIZZAZIONE ─── */
+@media (max-width: 850px) {
+    .hamburger {
+        display: flex;
+    }
+}
