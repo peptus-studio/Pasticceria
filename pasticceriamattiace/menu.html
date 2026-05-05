@@ -4,46 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu — Pasticceria Mattiace</title>
-    <!-- CSS Esistenti -->
+    <!-- Usa il CSS principale per mantenere lo stile base (colori, font, navbar) -->
+    <link rel="stylesheet" href="../css/menu.css"> 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/background.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <!-- SDK Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta name="description" content="Pasticceria Mattiace a Toritto, Puglia. Scopri le nostre specialità artigianali, create con passione e ingredienti di alta qualità. Un viaggio nel gusto tra tradizione e innovazione." />
+    <meta name="keywords" content="Pasticceria, Mattiace, Toritto, Puglia, dolci artigianali, specialità, pasticciere, ingredienti naturali, dolci tradizionali, dolci innovativi, dolci"> />
+    <meta name="og:title" content="Pasticceria Mattiace - Toritto, Puglia" />
+    <meta name="og:description" content="Scopri le specialità artigianali di Pasticceria Mattiace a Toritto, Puglia. Un viaggio nel gusto tra tradizione e innovazione." />
+    <meta name="og:image" content="../img/logo.jpg" />
+    <meta rel="icon" href="../img/logo.jpg" type="image/jpg" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Pasticceria Mattiace" />
+    <meta name="theme-color" content="#f5e1d0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Mattiace" />
+    <meta name="msapplication-TileColor" content="#f5e1d0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Tenor+Sans&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-pasticceria"> <!-- Classe per il tuo background.css -->
+<body> 
 
     <nav id="navbar">
         <a href="../index.html" class="nav-logo">Matti<span>ace</span></a>
+        <ul id="nav-links">
+            <!-- Popolato da menu.js -->
+        </ul>
         <button class="hamburger" id="hamburger">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
-    <main class="menu-page">
+    <div id="mobile-menu">
+        <!-- Popolato da menu.js -->
+    </div>
+
+    <<main class="menu-page">
         <header class="menu-intro">
             <h1 class="gold-text">Il Nostro Menu</h1>
             <p>Eccellenza artigianale in ogni dettaglio</p>
         </header>
 
-        <div id="menu-render" class="menu-grid">
-            <!-- I dati dal DB appariranno qui -->
-            <div class="loader">Caricamento prelibatezze...</div>
+        <!-- Assicurati che il CSS usi .menu-grid o #specialita-grid per lo styling -->
+        <div class="menu-grid">
+            <div id="specialita-grid">
+                <!-- Qui manu.js inietterà le card dei dolci -->
+            </div>
         </div>
     </main>
 
-    <footer id="main-footer"></footer>
+ter id="main-footer"></footer>
 
 <!-- 1. Carica la configurazione delle chiavi -->
+<!-- 1. Configurazioni e Chiavi -->
 <script src="../js/db/supabase_access.js"></script> 
 
-<!-- 2. Carica la LIBRERIA di sistema (DEVE stare sopra manu.js) -->
+<!-- 2. Libreria Supabase (caricata una sola volta) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- 3. Carica i tuoi script logici -->
-<script src="../js/footer.js"></script>
+<!-- 3. Logica del Menu Dinamico (Deve leggere Supabase) -->
+<script src="../js/manu.js"></script> 
+
+<!-- 4. Componenti UI (Navbar, Footer, Menu mobile) -->
 <script src="../js/menu.js"></script> 
-<script src="../js/manu.js"></script> <!-- Ora manu.js ha sia le chiavi che la libreria pronte -->
-</body>
+<script src="../js/footer.js"></script>
 </body>
 </html>

@@ -1,2 +1,5 @@
 .env
 /js/db/
+supabase/
+.menu_mattiace_start_esempio.csv
+admin/
