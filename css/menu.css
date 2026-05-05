@@ -1,0 +1,134 @@
+/* menu.css */
+.menu-page {
+    padding: 120px 20px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.menu-intro { text-align: center; margin-bottom: 50px; }
+.gold-text { color: #c9903a; font-family: 'Serif', serif; font-size: 2.5rem; }
+
+.category-section { margin-bottom: 40px; }
+.category-name {
+    color: #5a3214;
+    border-bottom: 2px solid #c9903a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.item-row:hover { transform: translateX(10px); }
+
+.item-name-box { flex: 1; }
+.item-name { font-weight: bold; color: #5a3214; display: block; }
+.item-desc { font-size: 0.85rem; color: #888; font-style: italic; }
+
+.item-dots {
+    flex: 2;
+    border-bottom: 1px dotted #c9903a;
+    margin: 0 15px;
+    height: 1px;
+}
+
+.item-price { color: #c9903a; font-weight: bold; min-width: 60px; text-align: right; }
+
+.loader { text-align: center; color: #c9903a; padding: 50px; }
+
+/* css/specialita.css */
+
+.specialita-hero {
+    padding: 150px 20px 80px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.section-label {
+    font-family: 'Tenor Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c9903a;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #5a3214;
+}
+
+.section-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.specialita-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+.specialita-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(201, 144, 58, 0.2);
+    padding: 40px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.specialita-card:hover {
+    transform: translateY(-10px);
+    border-color: #c9903a;
+    box-shadow: 0 15px 35px rgba(84, 50, 20, 0.1);
+}
+
+.card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #c9903a;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-family: 'Tenor Sans', sans-serif;
+    color: #5a3214;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card-divider {
+    width: 40px;
+    height: 1px;
+    background: #c9903a;
+    margin: 0 auto 15px;
+}
+
+.card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-price {
+    font-family: 'Tenor Sans', sans-serif;
+    color: #c9903a;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — Pasticceria Mattiace</title>
+    <!-- CSS Esistenti -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <!-- SDK Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-pasticceria"> <!-- Classe per il tuo background.css -->
+
+    <nav id="navbar">
+        <a href="../index.html" class="nav-logo">Matti<span>ace</span></a>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="menu-page">
+        <header class="menu-intro">
+            <h1 class="gold-text">Il Nostro Menu</h1>
+            <p>Eccellenza artigianale in ogni dettaglio</p>
+        </header>
+
+        <div id="menu-render" class="menu-grid">
+            <!-- I dati dal DB appariranno qui -->
+            <div class="loader">Caricamento prelibatezze...</div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+<!-- 1. Carica la configurazione delle chiavi -->
+<script src="../js/supabase_access.js"></script> 
+
+<!-- 2. Carica la LIBRERIA di sistema (DEVE stare sopra manu.js) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 3. Carica i tuoi script logici -->
+<script src="../js/footer.js"></script>
+<script src="../js/menu.js"></script> 
+<script src="../js/manu.js"></script> <!-- Ora manu.js ha sia le chiavi che la libreria pronte -->
+</body>
+</body>
+</html>

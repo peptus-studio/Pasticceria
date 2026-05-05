@@ -3,8 +3,8 @@
  */
 const NAV_DATA = [
     { label: "Home", href: "../index.html" },
-    { label: "Specialità", href: "pasticceriamattiace/specialita.html" },
-    { label: "Menu", href: "../index.html#menu" },
+    { label: "Specialità", href: "../pasticceriamattiace/specialita.html" },
+    { label: "Menu", href: "../pasticceriamattiace/menu.html" },
     { label: "Chi Siamo", href: "../index.html#chisiamo" },
     { label: "Contatti", href: "../index.html#contatti" }
 ];
