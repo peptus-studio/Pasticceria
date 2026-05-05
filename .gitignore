@@ -1,2 +1,2 @@
 .env
-.supabase_access.js
+/js/db/
