@@ -1,0 +1,107 @@
+/* ─── background.css ─── */
+
+:root {
+    /* Tavolozza Colori Coerente */
+    --cream-light: #fdfbf7;
+    --cream: #f9f5f0;
+    --warm-white: #fafafa;
+    --gold: #c9903a;
+    --gold-light: #e4b96a;
+    --gold-pale: rgba(228, 185, 106, 0.2);
+    --rose: rgba(232, 196, 187, 0.28);
+    --brown: #5a3214;
+    
+    /* Effetti Trasparenza (Glassmorphism) */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow: 0 8px 32px rgba(90, 50, 20, 0.08);
+    --shadow-lg: 0 16px 48px rgba(90, 50, 20, 0.12);
+    
+    /* Border Radius Generali */
+    --r-lg: 24px;
+    --r: 16px;
+}
+
+/* 1. SFONDO BASE DEL BODY */
+body {
+    background-color: var(--cream-light);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* 2. SISTEMA DELLE ORBITE ANIMATE (HERO) */
+/* Inserisci questi div dentro il tuo <section class="specialita-hero"> */
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+    animation: orbPulse 8s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 144, 58, 0.18), transparent 70%);
+    top: -150px;
+    right: -150px;
+}
+
+.hero-orb-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(212, 137, 122, 0.15), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation-delay: -3s;
+}
+
+.hero-orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(138, 171, 138, 0.12), transparent 70%);
+    top: 30%;
+    left: 5%;
+    animation-delay: -5s;
+}
+
+@keyframes orbPulse {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    33%      { transform: scale(1.1) translate(20px, -20px); }
+    66%      { transform: scale(0.9) translate(-10px, 15px); }
+}
+
+/* 3. GRADIENTI PER SEZIONI SPECIFICHE */
+
+/* Hero Specialità */
+.specialita-hero {
+    background: 
+        radial-gradient(ellipse 80% 70% at 70% 40%, rgba(228, 185, 106, 0.15), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(232, 196, 187, 0.2), transparent 60%),
+        var(--cream-light);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Griglia Gallery */
+.gallery-section {
+    background: 
+        radial-gradient(ellipse 70% 60% at 10% 50%, rgba(138, 171, 138, 0.08), transparent 60%),
+        var(--warm-white);
+}
+
+/* Footer o Sezioni di chiusura */
+footer {
+    background: var(--cream);
+    border-top: 1px solid var(--gold-pale);
+}
+
+/* 4. UTILITY PER EFFETTO VETRO (GLASSMORPHISM) */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+}

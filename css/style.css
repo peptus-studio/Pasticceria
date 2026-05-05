@@ -1,0 +1,355 @@
+/* Stile per il link attivo nella Navbar Desktop */
+#nav-links a.active {
+    color: var(--gold) !important; /* Il tuo colore oro */
+    opacity: 1;
+}
+
+#nav-links a.active::after {
+    width: 100%; /* Se hai una linea sotto al passaggio del mouse, questa la rende fissa */
+}
+
+/* Stile per il link attivo nel Menu Mobile */
+#mobile-menu a.active {
+    color: var(--gold);
+    font-weight: 600;
+    padding-left: 10px; /* Un piccolo accenno di movimento */
+}
+
+/* ─── STILE NAVBAR DESKTOP ─── */
+
+/* 1. Stato Normale: i link sono eleganti ma discreti */
+#nav-links a {
+    position: relative;
+    color: var(--text-light); /* o bianco/panna */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+/* 2. Stato ACTIVE & HOVER: qui avviene la magia */
+/* Applichiamo lo stesso stile sia quando passi il mouse, sia quando la pagina è attiva */
+#nav-links a:hover, 
+#nav-links a.active {
+    color: #d4af37 !important; /* Il tuo Oro Mattiace */
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* 3. La linea decorativa sotto il link (opzionale) */
+#nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: width 0.3s ease;
+}
+
+/* La linea si allunga se passi il mouse O se la pagina è attiva */
+#nav-links a:hover::after,
+#nav-links a.active::after {
+    width: 100%;
+}
+
+/* ─── STILE MENU MOBILE ─── */
+
+#mobile-menu a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Illuminazione nel menu a tendina */
+#mobile-menu a.active {
+    color: #d4af37;
+    padding-left: 15px; /* Effetto rientro per i link attivi */
+    border-left: 3px solid #d4af37;
+}
+
+#navbar.scrolled {
+    background: rgba(20, 20, 20, 0.95); /* Sfondo chiaro semitrasparente */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    padding: 8px 0; /* Si restringe leggermente */
+}
+
+/* ─── NAVBAR ─── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.2rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s, box-shadow .4s, padding .4s;
+    }
+    #navbar.scrolled {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+      padding: .75rem 2.5rem;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.9rem;
+      color: var(--brown);
+      text-decoration: none;
+      letter-spacing: .03em;
+      position: relative;
+    }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-logo::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .nav-logo:hover::after { transform: scaleX(1); }
+
+    #nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    #nav-links a {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: .82rem; letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none; position: relative;
+      transition: color .3s;
+    }
+    #nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1.5px; background: var(--gold);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform .3s;
+    }
+    #nav-links a:hover { color: var(--gold); }
+    #nav-links a:hover::after { transform: scaleX(1); }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 6px;
+      background: none; border: none; cursor: pointer;
+      padding: .4rem; z-index: 1100;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--brown); border-radius: 2px;
+      transition: all .35s cubic-bezier(.68,-.55,.27,1.55);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    #mobile-menu {
+      position: fixed; inset: 0; z-index: 1050;
+      background: rgba(253,246,238,.97);
+      backdrop-filter: blur(16px);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    #mobile-menu.open { opacity: 1; pointer-events: all; }
+    #mobile-menu a {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem; color: var(--brown);
+      text-decoration: none;
+      transform: translateY(24px); opacity: 0;
+      transition: color .3s, transform .45s, opacity .45s;
+    }
+    #mobile-menu.open a { transform: translateY(0); opacity: 1; }
+    #mobile-menu a:hover { color: var(--gold); }
+
+    /* --- BARRA DI NAVIGAZIONE --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--gold-pale);
+}
+
+/* --- HAMBURGER SYMBOL (Le 3 linee) --- */
+.hamburger {
+    display: none; /* Nascosto su desktop */
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brown);
+    margin-bottom: 6px;
+    transition: 0.3s;
+}
+
+/* Animazione X quando aperto */
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* --- MOBILE MENU (Tendina) --- */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Nascosto a destra */
+    width: 100%;
+    height: 100vh;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: 0.4s ease-in-out;
+    z-index: 1050;
+}
+
+#mobile-menu.open {
+    right: 0; /* Entra in campo */
+}
+
+#mobile-menu a {
+    font-size: 1.5rem;
+    color: var(--brown);
+    text-decoration: none;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+#mobile-menu a.active {
+    color: var(--gold);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    #nav-links { display: none; } /* Nasconde i link normali */
+    .hamburger { display: block; } /* Mostra l'hamburger */
+}
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--cream); border-top: 1px solid var(--gold-pale);
+      padding: 2.5rem 2rem; text-align: center; position: relative; z-index: 2;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; color: var(--brown); margin-bottom: .4rem;
+    }
+    .footer-logo span { color: var(--gold); font-style: italic; }
+    .footer-copy { font-size: .75rem; color: var(--text-light); letter-spacing: .08em; }
+
+/* Reset preventivo per evitare che il padding allarghi la barra */
+#navbar {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Mantiene logo a sinistra e link a destra */
+    
+    /* Altezza ridotta come richiesto */
+    padding: 0.8rem 5%; 
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stato quando si scende con lo scroll */
+#navbar.scrolled {
+    padding: 0.6rem 5%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow);
+}
+
+/* Gestione dei Link per evitare che escano dallo schermo */
+#nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: var(--brown);
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+/* Effetto allargamento scritte allo scroll */
+#navbar.scrolled .nav-logo {
+    transform: scale(1.05); /* Più elegante di un cambio font-size secco */
+    letter-spacing: 0.05em;
+}
+
+/* ─── HAMBURGER MENU (Simbolo mobile) ─── */
+.hamburger {
+    display: none; /* Nascosto su PC */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block; /* Fondamentale: senza questo lo span è invisibile */
+    width: 25px;    /* Larghezza della linea */
+    height: 3px;    /* Spessore della linea: aumentalo se è troppo sottile */
+    background-color: #5a3214 !important; /* Forza il colore marrone */
+    margin-bottom: 5px; /* Spazio tra le linee */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Rimuovi l'ultimo margine per non sbilanciare l'icona */
+.hamburger span:last-child {
+    margin-bottom: 0;
+}
+
+/* ─── RESPONSIVE (Mobile) ─── */
+@media (max-width: 850px) {
+    #nav-links {
+        display: none; /* Nasconde i link testuali su mobile */
+    }
+
+    .hamburger {
+        display: flex; /* Mostra il simbolo del menu su mobile */
+    }
+    
+    #navbar {
+        padding: 0.8rem 1.5rem; /* Padding più stretto su mobile */
+    }
+}
