@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo — Pasticceria Mattiace</title>
+    
+    <!-- CSS Collegati -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/chisiamo.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Tenor+Sans&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome per icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="../index.html" class="nav-logo">Matti<span>ace</span></a>
+        <ul id="nav-links">
+            <!-- Popolato da menu.js -->
+        </ul>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div id="mobile-menu">
+        <!-- Popolato da menu.js -->
+    </div>
+
+    <main>
+        <!-- HERO SECTION (Stile Orbs) -->
+        <section id="home">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+
+            <div class="hero-content">
+                <p class="hero-eyebrow">La nostra essenza</p>
+                <h1 class="hero-title">Tradizione <em>Mattiace</em></h1>
+                <p class="hero-sub">
+                    Da generazioni, trasformiamo ingredienti semplici in capolavori di dolcezza, 
+                    portando il cuore della Puglia in ogni singolo assaggio.
+                </p>
+                <div class="scroll-hint">
+                    <span>Scopri</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORIA SECTION -->
+        <section id="chisiamo">
+            <div class="about-inner">
+                <div class="about-visual reveal">
+                    <div class="about-blob">🥐</div>
+                    <div class="float-card float-card-a">
+                        <span class="float-card-icon">✨</span>
+                        <p class="float-card-text">Alta Qualità</p>
+                    </div>
+                    <div class="float-card float-card-b">
+                        <span class="float-card-icon">🇮🇹</span>
+                        <p class="float-card-text">Made in Toritto</p>
+                    </div>
+                </div>
+
+                <div class="about-content reveal reveal-d2">
+                    <p class="section-label">Dal 19XX</p>
+                    <h2 class="section-title">Passione per l'<em>Eccellenza</em></h2>
+                    <div class="divider"></div>
+                    <p class="about-story">
+                        La Pasticceria Mattiace nasce dal desiderio di preservare l'autenticità dei sapori locali. 
+                        Situata nel cuore di Toritto, la nostra bottega artigianale è diventata un punto di riferimento 
+                        per chi cerca non solo un dolce, ma un'emozione da condividere.
+                        <br><br>
+                        Ogni giorno selezioniamo le migliori mandorle, farina e burro per garantire una fragranza 
+                        che parla di casa, di festa e di amore per il territorio.
+                    </p>
+                    <div class="about-values">
+                        <span class="value-tag">Ingredienti Bio</span>
+                        <span class="value-tag">Lavorazione Lenta</span>
+                        <span class="value-tag">Ricette Storiche</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Il Footer verrà iniettato qui da footer.js -->
+    <footer id="main-footer"></footer>
+
+    <!-- Script -->
+    <script src="../js/menu.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/chisiamo.js"></script>
+</body>
+</html>

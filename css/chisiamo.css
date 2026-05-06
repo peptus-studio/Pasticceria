@@ -1,0 +1,262 @@
+/* ─── chisiamo.css ─── */
+
+:root {
+    --gold: #c9903a;
+    --gold-light: #e4b96a;
+    --gold-pale: #f5e4c0;
+    --brown: #4a2a10;
+    --text-mid: #6b5d54;
+    --text-light: #8e837d;
+    --cream: #fdfaf5;
+    --rose: #e8c4bb;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.04);
+    --shadow-gold: 0 15px 45px rgba(201, 144, 58, 0.15);
+}
+
+/* ─── LAYOUT GENERALE ─── */
+body {
+    background-color: var(--cream);
+    overflow-x: hidden;
+}
+
+/* ─── HERO SECTION (L'ORIGINALE POTENZIATO) ─── */
+#home {
+    min-height: 100vh;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    position: relative; 
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 80% 70% at 70% 40%, rgba(228,185,106,.18), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(232,196,187,.22), transparent 60%),
+        var(--cream);
+}
+
+.hero-orb {
+    position: absolute; 
+    border-radius: 50%;
+    filter: blur(80px); 
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,144,58,.12), transparent 70%);
+    top: -150px; right: -100px;
+    animation: orbPulse 10s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(212,137,122,.1), transparent 70%);
+    bottom: -80px; left: -80px;
+    animation: orbPulse 12s ease-in-out infinite reverse;
+}
+
+@keyframes orbPulse {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.hero-content {
+    text-align: center; 
+    position: relative; 
+    z-index: 2;
+    padding: 0 1.5rem;
+}
+
+.hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 12vw, 7.5rem);
+    line-height: 0.9;
+    color: var(--brown);
+    margin: 1rem 0;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+
+/* ─── SEZIONE CHI SIAMO ─── */
+#chisiamo {
+    padding: 10rem 2rem;
+    position: relative;
+}
+
+.about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* ─── IL BLOB ANIMATO (Visual) ─── */
+.about-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-blob {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--gold-pale) 0%, var(--rose) 50%, #fff 100%);
+    background-size: 200% 200%;
+    animation: morphBlob 12s ease-in-out infinite, gradientShift 8s infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    box-shadow: var(--shadow-gold);
+    position: relative;
+}
+
+@keyframes morphBlob {
+    0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+    25% { border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%; }
+    50% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
+    75% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+}
+
+@keyframes gradientShift {
+    from { background-position: 0% 0%; }
+    to { background-position: 100% 100%; }
+}
+
+/* ─── FLOAT CARDS (Elementi fluttuanti) ─── */
+.float-card {
+    position: absolute;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem;
+    border-radius: var(--r);
+    box-shadow: var(--shadow-soft);
+    z-index: 3;
+    text-align: center;
+}
+
+.float-card-a {
+    top: 10%; right: -20px;
+    animation: floatAnim 5s ease-in-out infinite;
+}
+
+.float-card-b {
+    bottom: 15%; left: -20px;
+    animation: floatAnim 5s ease-in-out infinite -2.5s;
+}
+
+@keyframes floatAnim {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* ─── TIPOGRAFIA E CONTENUTI ─── */
+.section-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--brown);
+    line-height: 1.1;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 2rem 0;
+}
+
+.about-story {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    margin-bottom: 2.5rem;
+}
+
+.about-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.value-tag {
+    padding: 0.6rem 1.4rem;
+    background: #fff;
+    border: 1px solid var(--gold-pale);
+    border-radius: 50px;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--brown);
+    transition: all 0.3s ease;
+}
+
+.value-tag:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* ─── EFFETTO REVEAL (JS) ─── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 968px) {
+    .about-inner {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .divider {
+        margin: 2rem auto;
+    }
+
+    .about-visual {
+        order: -1;
+    }
+
+    .about-blob {
+        max-width: 320px;
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #chisiamo { padding: 6rem 1.5rem; }
+    .hero-title { font-size: 3.8rem; }
+    .float-card { display: none; } /* Pulizia su schermi piccolissimi */
+}

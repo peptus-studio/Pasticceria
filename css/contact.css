@@ -1,0 +1,295 @@
+/* ─── contatti.css ─── */
+
+/* 1. LAYOUT PRINCIPALE */
+#contact-hero {
+    min-height: 100vh;
+    padding: 140px 20px 100px; /* Ampio padding superiore per non finire sotto la navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-container {
+    max-width: 1150px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr; /* Bilanciamento asimmetrico elegante */
+    gap: 5rem;
+    align-items: start;
+}
+
+/* 2. COLONNA INFORMAZIONI (Sinistra) */
+.contact-info {
+    padding-top: 1rem;
+}
+
+.contact-info .section-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--brown);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info .section-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+}
+
+.contact-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+    margin-bottom: 3.5rem;
+}
+
+/* Lista icone contatti */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.info-item i {
+    width: 50px;
+    height: 50px;
+    background: var(--glass-bg);
+    border: 1px solid var(--gold-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+.info-item:hover i {
+    background: var(--gold);
+    color: white;
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.info-item h3 {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brown);
+    margin: 0 0 0.4rem 0;
+}
+
+.info-item p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Social Icone */
+.social-links {
+    margin-top: 4rem;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.social-links a {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--gold-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-links a:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-gold);
+}
+
+/* 3. IL FORM (Destra - Effetto Vetro) */
+.contact-form-wrapper {
+    /* Utilizza la classe glass-panel definita nel background.css, qui la potenziamo */
+    padding: 3.5rem;
+    border-radius: 40px; /* Angoli super arrotondati e moderni */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorazione interna al form per profondità */
+.contact-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brown);
+    margin-bottom: 0.8rem;
+    padding-left: 5px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--brown);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(201, 144, 58, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Personalizzazione Select */
+select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9903a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+}
+
+/* Pulsante Invia */
+.submit-btn {
+    width: 100%;
+    padding: 1.3rem;
+    background: var(--brown);
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.4s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn i {
+    font-size: 0.8rem;
+    transition: transform 0.4s ease;
+}
+
+.submit-btn:hover {
+    background: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(201, 144, 58, 0.2);
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px) rotate(-10deg);
+}
+
+/* 4. RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .contact-container {
+        gap: 3rem;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr; /* Colonna singola su tablet/mobile */
+        text-align: center;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-list {
+        align-items: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .contact-form-wrapper {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .contact-info .section-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact-hero {
+        padding-top: 100px;
+    }
+    
+    .contact-info .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .submit-btn {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+    }
+}

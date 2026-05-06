@@ -1,172 +1,104 @@
-/* ─── background.css ─── */
+/* ─── background.css (VERSIONE ELITE UNIFICATA) ─── */
 
 :root {
-    /* Tavolozza Colori Coerente */
-    --cream-light: #fdfbf7;
-    --cream: #f9f5f0;
-    --warm-white: #fafafa;
+    /* Palette Colori Organica */
     --gold: #c9903a;
     --gold-light: #e4b96a;
-    --gold-pale: rgba(228, 185, 106, 0.2);
-    --rose: rgba(232, 196, 187, 0.28);
-    --brown: #5a3214;
+    --gold-pale: rgba(228, 185, 106, 0.15); /* Più visibile */
+    --brown: #4a2a10;
+    --cream: #fdfaf5;
+    --warm-white: #fdfbf7;
+    --rose: rgba(232, 196, 187, 0.22);
     
-    /* Effetti Trasparenza (Glassmorphism) */
+    /* Effetti Glassmorphism Universali */
     --glass-bg: rgba(255, 255, 255, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --shadow: 0 8px 32px rgba(90, 50, 20, 0.08);
-    --shadow-lg: 0 16px 48px rgba(90, 50, 20, 0.12);
-    
-    /* Border Radius Generali */
-    --r-lg: 24px;
-    --r: 16px;
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.04);
+    --shadow-gold: 0 15px 45px rgba(201, 144, 58, 0.12);
 }
 
-/* 1. SFONDO BASE DEL BODY */
-body {
-    background-color: var(--cream-light);
-    margin: 0;
-    min-height: 100vh;
-}
-
-/* 2. SISTEMA DELLE ORBITE ANIMATE (HERO) */
-/* Inserisci questi div dentro il tuo <section class="specialita-hero"> */
-.hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 1;
-    animation: orbPulse 8s ease-in-out infinite;
-}
-
-.hero-orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(201, 144, 58, 0.18), transparent 70%);
-    top: -150px;
-    right: -150px;
-}
-
-.hero-orb-2 {
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(212, 137, 122, 0.15), transparent 70%);
-    bottom: -100px;
-    left: -100px;
-    animation-delay: -3s;
-}
-
-.hero-orb-3 {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(138, 171, 138, 0.12), transparent 70%);
-    top: 30%;
-    left: 5%;
-    animation-delay: -5s;
-}
-
-@keyframes orbPulse {
-    0%, 100% { transform: scale(1) translate(0, 0); }
-    33%      { transform: scale(1.1) translate(20px, -20px); }
-    66%      { transform: scale(0.9) translate(-10px, 15px); }
-}
-
-/* 3. GRADIENTI PER SEZIONI SPECIFICHE */
-
-/* Hero Specialità */
-.specialita-hero {
-    background: 
-        radial-gradient(ellipse 80% 70% at 70% 40%, rgba(228, 185, 106, 0.15), transparent 65%),
-        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(232, 196, 187, 0.2), transparent 60%),
-        var(--cream-light);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Griglia Gallery */
-.gallery-section {
-    background: 
-        radial-gradient(ellipse 70% 60% at 10% 50%, rgba(138, 171, 138, 0.08), transparent 60%),
-        var(--warm-white);
-}
-
-/* Footer o Sezioni di chiusura */
-footer {
-    background: var(--cream);
-    border-top: 1px solid var(--gold-pale);
-}
-
-/* 4. UTILITY PER EFFETTO VETRO (GLASSMORPHISM) */
-.glass-panel {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: var(--shadow);
-}
-
-/* ─── background.css (VERSIONE UNIFICATA) ─── */
-
-:root {
-    --cream-light: #fdfbf7;
-    --gold-pale: rgba(228, 185, 106, 0.1);
-    --rose-pale: rgba(232, 196, 187, 0.15);
-}
-
-/* 1. Sfondo unico per tutta la pagina */
+/* 1. SETUP BODY & SFONDO DINAMICO */
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--cream-light);
-    /* Unico gradiente morbido che copre tutto il background */
+    background-color: var(--cream);
+    /* Gradiente "multi-layer" che non finisce mai */
     background-image: 
-        radial-gradient(at 0% 0%, var(--gold-pale) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, var(--rose-pale) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(255,255,255,0.8) 0px, transparent 80%);
-    background-attachment: fixed; /* Lo sfondo resta fermo, il contenuto scorre sopra */
+        radial-gradient(ellipse 80% 70% at 70% 40%, var(--gold-pale), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, var(--rose), transparent 60%),
+        radial-gradient(at 50% 50%, rgba(255,255,255,0.6) 0px, transparent 80%);
+    background-attachment: fixed; /* Il segreto per l'eleganza: lo sfondo resta fermo */
     background-size: cover;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-/* 2. Rendi tutte le sezioni trasparenti per non "rompere" lo sfondo */
-section, 
-main, 
-.specialita-hero, 
-.gallery-section, 
-#chisiamo {
-    background: transparent !important; /* Elimina i colori diversi tra sezioni */
-    border: none !important;
-}
-
-/* 3. Le orbite rimangono ma sono più discrete e non creano distacchi */
+/* 2. SISTEMA DELLE ORBS ANIMATE (GLOBAL) */
+/* Posizionate con 'fixed' così accompagnano lo scorrimento senza lasciare buchi bianchi */
 .hero-orb {
-    position: fixed; /* Fixed così non si creano buchi bianchi scorrendo */
+    position: fixed; 
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(80px); /* Sfocatura profonda stile Chi Siamo */
     pointer-events: none;
-    z-index: -1; /* Sempre dietro a tutto */
-    opacity: 0.6;
+    z-index: -1; /* Sempre dietro ai contenuti */
+    opacity: 0.7;
 }
 
 .hero-orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(201, 144, 58, 0.12), transparent);
-    top: -10%;
-    right: -10%;
-    animation: orbFloat 15s ease-in-out infinite;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(201, 144, 58, 0.18), transparent 70%);
+    top: -150px;
+    right: -100px;
+    animation: orbPulse 12s ease-in-out infinite;
 }
 
 .hero-orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(212, 137, 122, 0.1), transparent);
-    bottom: 10%;
-    left: -5%;
-    animation: orbFloat 20s ease-in-out infinite reverse;
+    background: radial-gradient(circle, rgba(212, 137, 122, 0.15), transparent 70%);
+    bottom: -80px;
+    left: -80px;
+    animation: orbPulse 15s ease-in-out infinite reverse;
 }
 
-@keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0); }
-    50%      { transform: translate(30px, 50px); }
+.hero-orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(138, 171, 138, 0.1), transparent 70%);
+    top: 35%;
+    left: 5%;
+    animation: orbPulse 18s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+/* Animazione fluida e organica */
+@keyframes orbPulse {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -50px) scale(1.05); }
+    66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+/* 3. PULIZIA DELLE SEZIONI */
+/* Rende tutte le sezioni trasparenti per far vedere lo sfondo unico sotto */
+section, 
+main, 
+#home,
+#chisiamo,
+.specialita-hero, 
+.gallery-section {
+    background: transparent !important;
+    position: relative;
+    overflow: visible; /* Permette ai blob e alle float cards di uscire dai bordi */
+}
+
+/* 4. UTILITY PER EFFETTO VETRO (GLASSMORPHISM) */
+/* Usalo per card, menu o box di testo */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-soft);
+    border-radius: 20px;
 }

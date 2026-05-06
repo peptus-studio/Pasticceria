@@ -5,8 +5,8 @@ const NAV_DATA = [
     { label: "Home", href: "../index.html" },
     { label: "Specialità", href: "../pasticceriamattiace/specialita.html" },
     { label: "Menu", href: "../pasticceriamattiace/menu.html" },
-    { label: "Chi Siamo", href: "../index.html#chisiamo" },
-    { label: "Contatti", href: "../index.html#contatti" }
+    { label: "Chi Siamo", href: "../pasticceriamattiace/chisiamo.html" },
+    { label: "Contatti", href: "../pasticceriamattiace/contact.html" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

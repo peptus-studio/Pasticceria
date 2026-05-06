@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti — Pasticceria Mattiace</title>
+    
+    <!-- CSS Collegati -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Tenor+Sans&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sfondo Animato (Incluso per sicurezza se non è nel body del background.css) -->
+    <div class="bg-orb-container">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+    </div>
+
+    <nav id="navbar">
+        <a href="../index.html" class="nav-logo">Matti<span>ace</span></a>
+        <ul id="nav-links">
+            <!-- Popolato da menu.js -->
+        </ul>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div id="mobile-menu">
+        <!-- Popolato da menu.js -->
+    </div>
+
+    <main>
+        <section id="contact-hero">
+            <div class="contact-container reveal">
+                
+                <!-- Colonna Sinistra: Info -->
+                <div class="contact-info">
+                    <p class="section-label">Mettiamoci in contatto</p>
+                    <h1 class="section-title">Vieni a trovarci a <em>Toritto</em></h1>
+                    <p class="contact-desc">
+                        Hai una richiesta speciale per un evento o vuoi semplicemente prenotare i tuoi dolci preferiti? Siamo qui per te. 
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Mattiace+Toritto" style="text-decoration: none; color: inherit;">
+                                <i class="fa-solid fa-location-dot" style="cursor: pointer;"></i>
+                            </a>
+                            <div>
+                                <h3>Indirizzo</h3>
+                                <p>Via Giuseppe Alberto Pugliese 314, 70020 Toritto (BA)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <!-- L'icona è dentro il link, così tutta l'area è cliccabile -->
+                            <a href="tel:+393498759019" style="text-decoration: none; color: inherit;">
+                                <i class="fa-solid fa-phone" style="cursor: pointer;"></i>
+                            </a>
+                            <div>
+                                <h3>Telefono</a></h3>
+                                <p>+39 349 875 9019</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <a href="mailto:mattiacepasticceria@gmail.com" style="text-decoration: none; color: inherit;">
+                                <i class="fa-solid fa-envelope" style="cursor: pointer;"></i>
+                            </a>
+                            <div>
+                                <h3><a href="mailto:mattiacepasticceria@gmail.com">Email</a></h3>
+                                <p>mattiacepasticceria@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Colonna Destra: Form -->
+                <div class="contact-form-wrapper glass-panel">
+                    <form id="pasticceria-form">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" placeholder="Es. Mario Rossi" required">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="nome@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Oggetto</label>
+                            <select>
+                                <option>Informazioni Generali</option>
+                                <option>Prenotazione Torte</option>
+                                <option>Eventi & Catering</option>
+                                <option>Altro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Messaggio</label>
+                            <textarea rows="5" placeholder="Come possiamo aiutarti?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Invia Richiesta
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer iniettato -->
+    <footer id="main-footer"></footer>
+
+    <!-- Script -->
+    <script src="../js/menu.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+</html>
