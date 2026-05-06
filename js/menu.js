@@ -1,5 +1,5 @@
 /**
- * GESTIONE MENU UNIVERSALE - VERSIONE CORRETTA
+ * GESTIONE MENU UNIVERSALE - COMPATIBILE CLOUDFLARE (PRETTY URLS)
  */
 const NAV_DATA = [
     { label: "Home", href: "../index.html" },
@@ -13,28 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
     const mobileMenu = document.getElementById('mobile-menu');
     const hamburger = document.getElementById('hamburger');
-    
-    const currentPath = window.location.pathname.split("/").pop() || "index.html";
-    const currentHash = window.location.hash;
+    const navbar = document.getElementById('navbar');
+
+    // 1. Pulizia del path attuale: togliamo .html e gli slash estremi
+    // Es: "/pasticceriamattiace/contact.html" diventa "contact"
+    let currentPath = window.location.pathname
+        .replace(/\.html$/, '') // Toglie .html alla fine
+        .split('/')
+        .pop() || 'index'; // Prende l'ultima parte o 'index' se vuoto
+
+    if (currentPath === '/') currentPath = 'index';
 
     NAV_DATA.forEach((item) => {
-        let isCurrentPage = false;
-        const cleanHref = item.href.split('/').pop();
+        // 2. Pulizia dell'href del menu per il confronto
+        // Prendiamo solo il nome del file senza estensione
+        // Es: "../contact.html" -> "contact"
+        let cleanHref = item.href
+            .replace(/\.html$/, '')
+            .split('/')
+            .pop();
 
-        if (cleanHref.includes('#')) {
-            const [page, hash] = cleanHref.split('#');
-            if (currentPath === page && currentHash === "#" + hash) {
-                isCurrentPage = true;
-            }
-        } else {
-            if (cleanHref === "index.html") {
-                isCurrentPage = (currentPath === "index.html" && currentHash === "");
-            } else {
-                isCurrentPage = (currentPath === cleanHref);
-            }
-        }
+        // 3. Controllo corrispondenza
+        const isCurrentPage = (currentPath === cleanHref);
 
-        // --- Desktop ---
+        // --- Creazione Link Desktop ---
         if (navLinks) {
             const li = document.createElement('li');
             const a = document.createElement('a');
@@ -45,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.appendChild(li);
         }
 
-        // --- Mobile ---
+        // --- Creazione Link Mobile ---
         if (mobileMenu) {
             const a = document.createElement('a');
             a.href = item.href;
             a.textContent = item.label;
             if (isCurrentPage) a.classList.add('active');
             a.onclick = () => {
-                hamburger.classList.remove('open');
+                hamburger?.classList.remove('open');
                 mobileMenu.classList.remove('open');
                 document.body.style.overflow = '';
             };
@@ -60,27 +62,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    if (hamburger) {
+    // Gestione Hamburger
+    if (hamburger && mobileMenu) {
         hamburger.onclick = () => {
             hamburger.classList.toggle('open');
             mobileMenu.classList.toggle('open');
-            // Blocca lo scroll della pagina quando il menu è aperto
             document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
         };
     }
-});
 
-// Gestione dello scroll per la Navbar
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            // Quando scorri verso il basso
-            navbar.classList.add('scrolled');
-        } else {
-            // Quando sei in cima alla pagina
-            navbar.classList.remove('scrolled');
-        }
-    });
+    // Gestione Scroll Navbar
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 });
